@@ -1,0 +1,12 @@
+.output-section{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.notes-container{
+    width: 40%;
+    
+    border: 1px black solid;
+    margin-bottom: 5px;
+}

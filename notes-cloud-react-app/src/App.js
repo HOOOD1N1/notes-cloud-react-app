@@ -1,23 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
 
+import {useEffect, useState} from 'react';
+import InputSection from './components/InputSection';
+import OutputSection from './components/OutputSection';
+
 function App() {
+
+  const [notes, setNotes] = useState([
+    {
+        title:"First title",
+        text: "First text",
+    },
+    {
+        title:"Seoncd title",
+        text: "Second text",
+    },
+    {
+        title:"First title",
+        text: "First text",
+    },
+    {
+        title:"Seoncd title",
+        text: "Second text",
+    },
+    {
+        title:"First title",
+        text: "First text",
+    },
+    {
+        title:"Seoncd title",
+        text: "Second text",
+    },]);
+
+    useEffect(() => {
+      notes.forEach(note=>console.log(note))
+    }, [notes])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InputSection setNotes={setNotes} notes={notes}/>
+      <OutputSection notes={notes}/>
     </div>
   );
 }
