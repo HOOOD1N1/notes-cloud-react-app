@@ -5,8 +5,19 @@
     align-items: center;
 }
 .notes-container{
-    width: 40%;
+    width: 35%;
     
-    border: 1px black solid;
+    border: 2px black solid;
     margin-bottom: 5px;
+    max-width: 35%;
+}
+#notes-content{
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: left;
+
+}
+#notes-title{
+    color: midnightblue;
+    font-size: 18px;
 }

@@ -10,10 +10,10 @@ const OutputSection = ({notes}) => {
             {notes.map(note => {
                 return <div className='notes-container'>
                     <div id="note-title">
-                        {note.title}
+                    <p id="notes-title">{note.title}</p>
                     </div>
                     <div id="note-text">
-                        {note.text}
+                        <p id="notes-content">{note.content}</p>
                     </div>
                 </div>
             })}

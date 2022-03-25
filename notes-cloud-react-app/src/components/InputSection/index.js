@@ -1,7 +1,7 @@
 import {useEffect, useState, useRef} from 'react';
 import './index.css';
 
-const InputSection = ({setNotes, notes}) => {
+const InputSection = ({setNotes}) => {
 
     const [title, setTitle] = useState("");
     const [newNote, setNewNote] = useState("");
@@ -20,22 +20,24 @@ const InputSection = ({setNotes, notes}) => {
         }else {
             error.current.style.visibility="hidden";
         
-            // const notes = await fetch(``, {
-            //     method: "POST",
-            //     headers: {
-            //       "Content-Type": "application/json",
-            //     },
-            //     body:{
-            //         title: title,
-            //         newNote: newNote
-            //     }
-            //   });
-            //   const jsonNotes = await notes.json();
-              console.log("enters")
-    
-            //   setNotes(state => state.push(JSON.parse(jsonNotes)));
-              setNotes([...notes, {title: "title", text: "text"}]);
-            
+            const notes = await fetch(`http://34.244.150.150:80/notes`, {
+                method: "POST",
+                "headers": {
+                 "Access-Control-Allow-Origin":"*",
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    title: title,
+                    text: newNote
+                })
+                    
+              });
+              const jsonNotes = await notes.json();
+
+              setNotes(jsonNotes.items);
+              setTitle("");
+              setNewNote("");
+              
         }   
 
         

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './App.css';
 
 import {useEffect, useState} from 'react';
@@ -6,39 +7,39 @@ import OutputSection from './components/OutputSection';
 
 function App() {
 
-  const [notes, setNotes] = useState([
-    {
-        title:"First title",
-        text: "First text",
-    },
-    {
-        title:"Seoncd title",
-        text: "Second text",
-    },
-    {
-        title:"First title",
-        text: "First text",
-    },
-    {
-        title:"Seoncd title",
-        text: "Second text",
-    },
-    {
-        title:"First title",
-        text: "First text",
-    },
-    {
-        title:"Seoncd title",
-        text: "Second text",
-    },]);
+  const [notes, setNotes] = useState([{
+    title: 'jojn',
+    content: 'asdasfasdjfopasjdfoijasoidfjoaisdjfioasjdfoijasdoifjaoisdjfoiasjdfasdasdsdafasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf',
+  },
+  {
+    title: 'jojn',
+    content: 'asdasfasdjfopasjdfoijasoidfjoaisdjfioasjdfoijasdoifjaoisdjfoiasjdfasdasdsdafasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf',
+  },
+  {
+    title: 'jojn',
+    content: 'asdasfasdjfopasjdfoijasoidfjoaisdjfioasjdfoijasdoifjaoisdjfoiasjdfasdasdsdafasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf',
+  },
+  {
+    title: 'jojn',
+    content: 'asdasfasdjfopasjdfoijasoidfjoaisdjfioasjdfoijasdoifjaoisdjfoiasjdfasdasdsdafasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf',
+  },
+    ]);
 
-    useEffect(() => {
-      notes.forEach(note=>console.log(note))
-    }, [notes])
+    useEffect(async() => {
+      const theNotes = await fetch("http://34.244.150.150:80/notes", {
+        "headers":{
+          "Access-Control-Allow-Origin":"*",
+          "Content-Type": "application/json",
+        }
+      });
+      const jsonNotes = await theNotes.json();
+      setNotes(jsonNotes.message);
+
+    }, [])
 
   return (
     <div className="App">
-      <InputSection setNotes={setNotes} notes={notes}/>
+      <InputSection setNotes={setNotes}/>
       <OutputSection notes={notes}/>
     </div>
   );
