@@ -7,26 +7,10 @@ import OutputSection from './components/OutputSection';
 
 function App() {
 
-  const [notes, setNotes] = useState([{
-    title: 'jojn',
-    content: 'asdasfasdjfopasjdfoijasoidfjoaisdjfioasjdfoijasdoifjaoisdjfoiasjdfasdasdsdafasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf',
-  },
-  {
-    title: 'jojn',
-    content: 'asdasfasdjfopasjdfoijasoidfjoaisdjfioasjdfoijasdoifjaoisdjfoiasjdfasdasdsdafasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf',
-  },
-  {
-    title: 'jojn',
-    content: 'asdasfasdjfopasjdfoijasoidfjoaisdjfioasjdfoijasdoifjaoisdjfoiasjdfasdasdsdafasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf',
-  },
-  {
-    title: 'jojn',
-    content: 'asdasfasdjfopasjdfoijasoidfjoaisdjfioasjdfoijasdoifjaoisdjfoiasjdfasdasdsdafasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf',
-  },
-    ]);
+  const [notes, setNotes] = useState([]);
 
     useEffect(async() => {
-      const theNotes = await fetch("http://34.244.150.150:80/notes", {
+      const theNotes = await fetch("http://54.247.52.29/notes", {
         "headers":{
           "Access-Control-Allow-Origin":"*",
           "Content-Type": "application/json",

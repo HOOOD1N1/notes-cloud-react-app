@@ -20,7 +20,7 @@ const InputSection = ({setNotes}) => {
         }else {
             error.current.style.visibility="hidden";
         
-            const notes = await fetch(`http://34.244.150.150:80/notes`, {
+            const notes = await fetch(`http://54.247.52.29/notes`, {
                 method: "POST",
                 "headers": {
                  "Access-Control-Allow-Origin":"*",
@@ -32,6 +32,8 @@ const InputSection = ({setNotes}) => {
                 })
                     
               });
+
+              
               const jsonNotes = await notes.json();
 
               setNotes(jsonNotes.items);
@@ -50,8 +52,8 @@ const InputSection = ({setNotes}) => {
             <h2>Add a new note</h2>
             <div className="add-note-container">
                 <form className="add-note-form">
-                    <input type="text" placeholder="Enter title..." id="input-section-title" onChange={e => setTitle(e.target.value)}/>
-                    <textarea id="textarea"  rows="6" cols="50" placeholder="Enter note..." onChange={e => setNewNote(e.target.value)}/>
+                    <input type="text" placeholder="Enter title..." value={title} id="input-section-title" onChange={e => setTitle(e.target.value)}/>
+                    <textarea id="textarea"  rows="6" cols="50" value={newNote} placeholder="Enter note..." onChange={e => setNewNote(e.target.value)}/>
                     <div id="input-section-bottom">
                         
                         <span id="input-error" ref={error}>
